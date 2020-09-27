@@ -4,7 +4,7 @@ using UnityEngine;
 
 
 //Simulates an AM/PM clock system starting at StartTimeHour/Minute where display minutes increase in increments of 10
-public class MyClockManager : MonoBehaviour
+public class ClockManager : MonoBehaviour
 {
     private int militaryTimeMinute = 0;
     private int militaryTimeHour = 0;
@@ -24,13 +24,13 @@ public class MyClockManager : MonoBehaviour
     public int startTimeMinute;
 
 
-    private void Start()
+    private virtual void Start()
     {
         Inititialize();
     }
 
 
-    private void Update()
+    private virtual void Update()
     {
         if (currentlyIndoors)
         {
@@ -52,7 +52,7 @@ public class MyClockManager : MonoBehaviour
     }
 
 
-    public void Inititialize()
+    public virtual void Inititialize()
     {
         isAM = true;
 
@@ -63,7 +63,7 @@ public class MyClockManager : MonoBehaviour
     }
 
 
-    public void MinutePassed()
+    public virtual void MinutePassed()
     {
         militaryTimeMinute += 1;
         tickTimer -= realSecondsPerGameMin; //Reset tickTimer so it can start counting to 1 
@@ -80,7 +80,7 @@ public class MyClockManager : MonoBehaviour
     }
 
 
-    private void HourPassed()
+    private virtual void HourPassed()
     {
         militaryTimeHour++;
         displayHour++;
@@ -104,25 +104,25 @@ public class MyClockManager : MonoBehaviour
     }
 
 
-    public void Pausetime()
+    public virtual void Pausetime()
     {
         timePaused = true;
     }
 
 
-    public void UnPauseTime()
+    public virtual void UnPauseTime()
     {
         timePaused = false;
     }
 
 
-    public void EnteredIndoors()
+    public virtual void EnteredIndoors()
     {
         currentlyIndoors = true;
     }
 
 
-    public void ExitedIndoors()
+    public virtual void ExitedIndoors()
     {
         currentlyIndoors = false;
     }

@@ -49,7 +49,7 @@ public class RandomDirectionMovement: MonoBehaviour
 
     
     //ran each physics update frame
-    private void FixedUpdate()
+    private virtual void FixedUpdate()
     {
         if (currentlyMoving)
         {
@@ -88,7 +88,7 @@ public class RandomDirectionMovement: MonoBehaviour
 
 
     //dropDirectionDegrees determines direction of arcVector 
-    public void StartDropping()
+    public virtual void StartDropping()
     {
         pickerRb = transform.GetComponent<Rigidbody2D>();
 
@@ -115,13 +115,13 @@ public class RandomDirectionMovement: MonoBehaviour
 
 
     //converts radians to direction Vector2 
-    public static Vector2 RadianToVector2(float radian)
+    public virtual static Vector2 RadianToVector2(float radian)
     {
         return new Vector2(Mathf.Cos(radian), Mathf.Sin(radian));
     }
 
     //converts degrees to direction Vector2
-    public static Vector2 DegreeToVector2(float degree)
+    public virtual static Vector2 DegreeToVector2(float degree)
     {
         return RadianToVector2(degree * Mathf.Deg2Rad);
     }
