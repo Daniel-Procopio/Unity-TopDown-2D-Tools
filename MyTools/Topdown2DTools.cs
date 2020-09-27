@@ -116,7 +116,7 @@ public class Topdown2DTools : MonoBehaviour
     }
 
 
-    //returns raycast hit target 2D at input position for the first object of layer checkedLayer
+    //Raycasts at input position for the first object of layer checkedLayer
     public virtual RaycastHit2D PositionRayCast(Vector3 inputPosition, LayerMask checkedLayer) //raycast from mouse position to screen checking for whatever layers are passed in
     {
         return Physics2D.Raycast(inputPosition, Vector2.zero, Mathf.Infinity, checkedLayer); // test if mouse is hovering over any colliders belonging to checkedLayer
